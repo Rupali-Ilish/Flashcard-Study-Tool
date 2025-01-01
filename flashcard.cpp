@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Helper function to convert a string to lowercase
 string toLowercase(const string &input)
 {
     string result = input;
@@ -35,14 +34,14 @@ string Flashcard::getAnswer() const
 // Deck class implementations
 Deck::Deck()
 {
-    srand(time(nullptr)); // Seed random number generator
+    srand(time(nullptr)); //random number
 }
 
 Deck::~Deck()
 {
     for (auto card : cards)
     {
-        delete card; // Clean up dynamically allocated flashcards
+        delete card; 
     }
 }
 
@@ -85,6 +84,6 @@ void loadFlashcardsFromFile(const string &filename, Deck &deck)
         getline(file, answer);
         deck.addCard(new Flashcard(question, answer));
     }
-    // cout << "Flashcards loaded from file!\n\n";
+
     file.close();
 }
