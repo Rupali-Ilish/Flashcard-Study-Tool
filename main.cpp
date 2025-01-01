@@ -96,7 +96,7 @@ int main()
             }
             case 2:
             {
-                // Set Up Flashcard Deck (Display all flashcards)
+                // Display all flashcards
                 cout << "\n--- Flashcard Deck ---\n";
                 currentDeck.displayDeck(); // Display all flashcards in the deck
                 break;
@@ -108,13 +108,13 @@ int main()
                 cout << "\n--- Add Basic Flashcard ---\n";
                 cout << "---------------------------" << endl;
                 cout << "Enter the question: ";
-                cin.ignore(); // Clear input buffer
+                cin.ignore(); 
                 getline(cin, question);
                 cout << "Enter the answer: ";
                 getline(cin, answer);
 
                 Flashcard *card = new Flashcard(question, answer);
-                // add to file here
+            
                 currentDeck.addCard(card); // Add card to the deck
                 cout << "Flashcard added!\n\n";
 
@@ -138,7 +138,7 @@ int main()
                 cout << "--- View Statistics ---\n";
                 cout << "-----------------------" << endl;
 
-                stats.displayStatistics(currentSession); // Pass the session to displayStatistics
+                stats.displayStatistics(currentSession); 
                 break;
             }
             case 5:
