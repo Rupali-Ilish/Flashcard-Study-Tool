@@ -1,6 +1,6 @@
 #include "statistics.h"
 #include <iostream>
-#include <iomanip> // For formatting accuracy
+#include <iomanip> 
 
 using namespace std;
 
@@ -8,17 +8,17 @@ Statistics::Statistics() : accuracy(0.0f) {}
 
 void Statistics::calculateStats(const Session& session) 
 {
-    int totalQuestions = session.getDeck().size(); // Total questions are the size of the deck
+    int totalQuestions = session.getDeck().size(); 
     if (totalQuestions > 0) {
         accuracy = (static_cast<float>(session.getScore()) / totalQuestions) * 100; // Calculate accuracy
     } else {
-        accuracy = 0.0f; // No questions, so 0% accuracy
+        accuracy = 0.0f; // No question means 0% accuracy
     }
 }
 
 void Statistics::displayStatistics(const Session& session) 
 {
-    calculateStats(session); // Calculate accuracy and other stats before displaying
+    calculateStats(session); // Calculate accuracy and others before displaying
 
     int totalQuestions = session.getDeck().size();
     long long duration = session.getDuration();
