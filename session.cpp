@@ -12,7 +12,7 @@ string trim(const string &str)
 
     if (start == string::npos || end == string::npos)
     {
-        return ""; // Return an empty string if the line is all whitespace
+        return ""; 
     }
 
     return str.substr(start, end - start + 1);
@@ -22,19 +22,19 @@ Session::Session() : score(0), duration(0) {}
 
 void Session::start()
 {
-    startTime = high_resolution_clock::now(); // Record the start time
-    score = 0;                                // Initialize score to 0
+    startTime = high_resolution_clock::now(); // Record start time
+    score = 0;                                
 
     cout << "\nAnswer the following questions..... \n" << endl;
-    evaluation(); // Start evaluation (question answering)
+    evaluation(); // Start exam
 }
 
 void Session::end()
 {
-    endTime = high_resolution_clock::now();                         // Record the end time
+    endTime = high_resolution_clock::now();                         // Record end time
     duration = duration_cast<seconds>(endTime - startTime).count(); // Duration in seconds
     cout << "\nSession ended. \nScore: " << score << endl
-         << endl; // Display score at the end of session
+         << endl; 
 }
 
 void Session::evaluation()
@@ -46,7 +46,7 @@ void Session::evaluation()
         currentDeck[i]->displayQuestion(); // Display the question from each flashcard
         cout << "\nEnter your answer: ";
         getline(cin,given);                                                    // Take user input as answer
-        transform(given.begin(), given.end(), given.begin(), ::tolower); // Convert input to lowercase
+        transform(given.begin(), given.end(), given.begin(), ::tolower); 
 
         string tmp = currentDeck[i]->getAnswer();
         tmp = trim(tmp);
@@ -54,7 +54,7 @@ void Session::evaluation()
         if (given == tmp)
         {
             cout << "\nCorrect Answer" << endl;
-            score++; // Increment score if the answer is correct
+            score++; 
         }
         else
         {
@@ -71,17 +71,17 @@ void Session::setDeck(const vector<Flashcard *> &deck)
 
 int Session::getScore() const
 {
-    return score; // Return the score (correct answers)
+    return score; 
 }
 
 vector<Flashcard *> Session::getDeck() const
 {
-    return currentDeck; // Return the deck of flashcards
+    return currentDeck; 
 }
 
 long long Session::getDuration() const
 {
-    return duration; // Return the duration of the session in seconds
+    return duration; 
 }
 
 void Session::clearScore(void)
