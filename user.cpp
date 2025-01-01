@@ -36,8 +36,7 @@ bool User::createAccount(Account &account, string name, string pass) // create a
         account.createAccount(name, pass);
         allaccounts.insert(name);
 
-        //saving user info
-                    ofstream file("userInfo.txt", ios::app); 
+                    ofstream file("userInfo.txt", ios::app); //saving user info here
                     if (file.is_open()) 
                     { 
                         file << name << "\n"; 
@@ -69,17 +68,17 @@ void User::loadAccountsFromFile()
     }
 }
 
-string User::getName() const // get name
+string User::getName() const 
 {
     return name;
 }
 
-int User::getScore() const // get score
+int User::getScore() const 
 {
     return score;
 }
 
-void User::updateScore(int newScore) // updating score
+void User::updateScore(int newScore) 
 {
     score = newScore;
 }
